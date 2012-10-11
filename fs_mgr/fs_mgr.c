@@ -435,6 +435,7 @@ int fs_mgr_mount_all(char *fstab_file)
 
         if (fstab[i].fs_mgr_flags & MF_CHECK) {
             check_fs(fstab[i].blk_dev, fstab[i].type);
+
         }
 
         mret = mount(fstab[i].blk_dev, fstab[i].mnt_point, fstab[i].type,
