@@ -32,11 +32,7 @@ loglevel 3
     export ANDROID_DATA /data
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
-<<<<<<< HEAD
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
-=======
-    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
->>>>>>> remotes/aosp/jb-mr0-release
 
 # Backward compatibility
     symlink /system/etc /etc
@@ -216,7 +212,6 @@ on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     #setprop vold.post_fs_data_done 1
 
-<<<<<<< HEAD
 
 # Include extra init file
     import /system/etc/init.local.rc
@@ -229,8 +224,6 @@ on post-fs-data
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
-=======
->>>>>>> remotes/aosp/jb-mr0-release
 on boot
 # basic network init
     ifup lo
@@ -285,7 +278,6 @@ on boot
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
 
     # Assume SMP uses shared cpufreq policy for all CPUs
-<<<<<<< HEAD
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -295,10 +287,6 @@ on boot
 
     chown system system /sys/block/mmcblk0/queue/scheduler
     chmod 0664 /sys/block/mmcblk0/queue/scheduler
-=======
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
->>>>>>> remotes/aosp/jb-mr0-release
 
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
@@ -334,7 +322,6 @@ on boot
     setprop net.tcp.buffersize.lte     524288,1048576,2097152,262144,524288,1048576
     setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
     setprop net.tcp.buffersize.hspa    4094,87380,262144,4096,16384,262144
-<<<<<<< HEAD
     setprop net.tcp.buffersize.hsupa   4094,87380,262144,4096,16384,262144
     setprop net.tcp.buffersize.hsdpa   4094,87380,262144,4096,16384,262144
     setprop net.tcp.buffersize.hspap   4094,87380,1220608,4096,16384,1220608
@@ -351,10 +338,6 @@ on boot
     chmod 0664 /sys/kernel/mm/ksm/run
     write /sys/kernel/mm/ksm/sleep_millisecs 1500
     write /sys/kernel/mm/ksm/pages_to_scan 256
-=======
-    setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
-    setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
->>>>>>> remotes/aosp/jb-mr0-release
 
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
@@ -442,11 +425,7 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system
     user root
-<<<<<<< HEAD
     group radio cache inet misc audio sdcard_rw log
-=======
-    group radio cache inet misc audio sdcard_r sdcard_rw log
->>>>>>> remotes/aosp/jb-mr0-release
 
 service surfaceflinger /system/bin/surfaceflinger
     class main
@@ -499,13 +478,6 @@ service installd /system/bin/installd
     class main
     socket installd stream 600 system system
 
-<<<<<<< HEAD
-=======
-service flash_recovery /system/etc/install-recovery.sh
-    class main
-    oneshot
-
->>>>>>> remotes/aosp/jb-mr0-release
 service racoon /system/bin/racoon
     class main
     socket racoon stream 600 system system
@@ -545,7 +517,6 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
-<<<<<<< HEAD
 
 # Execute files in /etc/init.d before booting
     service sysinit /system/xbin/busybox run-parts /system/etc/init.d
@@ -558,5 +529,3 @@ on property:service.adb.tcp.port=5555
 on property:service.adb.tcp.port=-1
     stop adbd
     start adbd
-=======
->>>>>>> remotes/aosp/jb-mr0-release
