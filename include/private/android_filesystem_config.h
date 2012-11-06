@@ -63,6 +63,8 @@
 #define AID_NFC           1027  /* nfc subsystem */
 #define AID_SDCARD_R      1028  /* external storage read access */
 
+#define AID_MMS           1301  /* mms auto-retrieval properties */
+
 #define AID_SHELL         2000  /* adb and debug shell user */
 #define AID_CACHE         2001  /* cache access */
 #define AID_DIAG          2002  /* access to diagnostic resources */
@@ -132,6 +134,7 @@ static const struct android_id_info android_ids[] = {
     { "net_admin", AID_NET_ADMIN, },
     { "net_bw_stats", AID_NET_BW_STATS, },
     { "net_bw_acct", AID_NET_BW_ACCT, },
+    { "mms",       AID_MMS, },
     { "misc",      AID_MISC, },
     { "nobody",    AID_NOBODY, },
 };
@@ -151,7 +154,6 @@ struct fs_path_config {
 ** should start with the most specific path and work their
 ** way up to the root.
 */
-
 static struct fs_path_config android_dirs[] = {
     { 00770, AID_SYSTEM, AID_CACHE,  "cache" },
     { 00771, AID_SYSTEM, AID_SYSTEM, "data/app" },
